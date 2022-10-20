@@ -1,0 +1,14 @@
+{
+  "1" : {
+      "moodId": 1,
+      "label": "ok"
+  },
+  "2" : {
+    "moodId": 2,
+    "label": "sad"
+  },
+  "3" : {
+    "moodId": 3,
+    "label": "grumpy"
+  }
+}

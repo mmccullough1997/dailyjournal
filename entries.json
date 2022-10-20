@@ -1,0 +1,23 @@
+{
+  "1" : {
+      "entryId": 1,
+      "date": "07/24/2025",
+      "concept": "HTML & CSS",
+      "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
+      "moodId": 1
+  },
+  "2" : {
+    "entryId": 2,
+    "date": "07/25/2025",
+    "concept": "CSS",
+    "entry": "We talked about CSS.",
+    "moodId": 2
+  },
+  "3" : {
+    "entryId": 3,
+    "date": "07/26/2025",
+    "concept": "Metaphysics",
+    "entry": "We talked about denial of death",
+    "moodId": 3
+  }
+}
