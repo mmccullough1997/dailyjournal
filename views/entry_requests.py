@@ -42,3 +42,45 @@ def get_all_entries():
 
     # Use `json` package to properly serialize list as JSON
     return json.dumps(entries)
+
+def get_single_entry(entry_id):
+    """Gets those entries by dat id haha"""
+
+    with sqlite3.connect("./dailyjournal.sqlite3") as conn:
+        conn.row_factory = sqlite3.Row
+        db_cursor = conn.cursor()
+
+        # Write the SQL query to get the information you want
+        db_cursor.execute("""
+        select
+            a.entry_id,
+            a.mood_id,
+            a.date,
+            a.concept,
+            a.entry
+        FROM entries a
+        """)
+
+        entries = []
+        dataset = db_cursor.fetchall()
+
+        for row in dataset:
+
+            # Create an animal instance from the current row.
+            # Note that the database fields are specified in
+            # exact order of the parameters defined in the
+            # Animal class above.
+            entry = Entry(row['entry_id'], row['mood_id'], row['date'],
+                            row['concept'], row['entry'])
+
+            entries.append(entry.__dict__)
+            
+        requested_entry = None
+        for new_entry in entries:
+            if new_entry["entry_id"] == entry_id:
+                requested_entry = new_entry
+            
+        return requested_entry
+
+    # Use `json` package to properly serialize list as JSON
+    return json.dumps(entries)
