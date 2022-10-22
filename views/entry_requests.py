@@ -84,3 +84,13 @@ def get_single_entry(entry_id):
 
     # Use `json` package to properly serialize list as JSON
     return json.dumps(entries)
+
+def delete_entry(entry_id):
+    """ delete"""
+    with sqlite3.connect("./dailyjournal.sqlite3") as conn:
+        db_cursor = conn.cursor()
+
+        db_cursor.execute("""
+        DELETE FROM entries
+        WHERE entry_id = ?
+        """, (entry_id, ))
